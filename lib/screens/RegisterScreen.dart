@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'LoginScreen.dart';
+
 class RegisterScreen extends StatefulWidget {
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -89,6 +91,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
             TextButton(
               onPressed: () {
                 // Xử lý điều hướng đến trang đăng nhập
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
               },
               child: Text('Đăng nhập'),
             ),

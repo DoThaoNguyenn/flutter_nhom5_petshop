@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nhom5_petshop/screens/cart.dart';
 
 import 'screens/LoginScreen.dart';
 
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _tabs = [
     HomeTab(),
-    CartTab(),
+    Cart(),
     UserTab(),
   ];
 
@@ -85,7 +86,8 @@ class CartTab extends StatelessWidget {
 
 class UserTab extends StatelessWidget {
   void _navigateToLoginScreen(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 
   @override

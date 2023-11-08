@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nhom5_petshop/screens/cart.dart';
+import 'package:flutter_nhom5_petshop/screens/my_profile.dart';
 
 import 'screens/LoginScreen.dart';
 
@@ -26,8 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _tabs = [
     HomeTab(),
-    Cart(),
-    UserTab(),
+    const Cart(),
+    // UserTab(),
+    const MyProfile(),
   ];
 
   void _onTabTapped(int index) {

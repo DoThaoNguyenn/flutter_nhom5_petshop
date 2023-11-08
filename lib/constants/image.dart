@@ -5,3 +5,6 @@ const String img4 = 'images/img_4.png';
 const String star = 'images/Star.png';
 const String tickUncheck = 'images/tick_uncheck.png';
 const String tickCheck = 'images/tick_check.png';
+const String avatar = 'images/img_avatar.png';
+const String arrowRight = 'images/img_arrow_right.png';
+const String imgLogout = 'images/img_logout.png';

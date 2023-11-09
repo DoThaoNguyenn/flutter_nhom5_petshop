@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import 'ForgotPasswordScreen.dart';
 import 'RegisterScreen.dart';
 
@@ -22,12 +23,26 @@ class _LoginScreenState extends State<LoginScreen> {
         _errorText = 'Vui lòng điền tên người dùng và mật khẩu.';
       });
     } else {
-      // Xử lý đăng nhập ở đây
-      setState(() {
-        _errorText = ''; // Đặt lại thông báo lỗi nếu không có lỗi
-      });
+      // Kiểm tra tên người dùng và mật khẩu
+      if (username == 'admin' && password == '12345') {
+        // Đăng nhập thành công, có thể thực hiện hành động cần thiết ở đây
+        setState(() {
+          _errorText = ''; // Đặt lại thông báo lỗi nếu không có lỗi
+        });
+        // Thực hiện hành động sau khi đăng nhập thành công
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()), //điều hướng đến home
+        );
+      } else {
+        // Đăng nhập thất bại, hiển thị thông báo lỗi
+        setState(() {
+          _errorText = 'Tên người dùng hoặc mật khẩu không đúng.';
+        });
+      }
     }
   }
+
 
   @override
   Widget build(BuildContext context) {

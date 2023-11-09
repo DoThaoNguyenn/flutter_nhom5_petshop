@@ -10,7 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return MaterialApp(
       home: HomeScreen(),
     );
@@ -102,5 +102,5 @@ class UserTab extends StatelessWidget {
         child: Text('Đăng nhập'),
       ),
     );
-  }
+  } 
 }

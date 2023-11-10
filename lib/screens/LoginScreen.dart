@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (username == 'admin' && password == '12345') {
         // Đăng nhập thành công, có thể thực hiện hành động cần thiết ở đây
         setState(() {
-          _errorText = ''; // Đặt lại thông báo lỗi nếu không có lỗi
+          _errorText = 'Đăng nhập thành công';
         });
         // Thực hiện hành động sau khi đăng nhập thành công
         Navigator.pushReplacement(
@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
               'Welcome!',
               style: TextStyle(
                 fontSize: 70,
-                color: Colors.blue,
+                color: Colors.red,
               ),
             ),
             Container(

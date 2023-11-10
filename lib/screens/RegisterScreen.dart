@@ -44,7 +44,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
       appBar: AppBar(
         title: Text('Register'),
         centerTitle: true,
-        backgroundColor: Colors.red, // Chỉnh màu nền tiêu đề
       ),
       body: Center(
         child: Column(
@@ -54,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               'Đăng ký',
               style: TextStyle(
                 fontSize: 70,
-                color: Colors.blue,
+                color: Colors.red,
               ),
             ),
             Container(

@@ -42,7 +42,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               'Quên mật khẩu',
               style: TextStyle(
                 fontSize: 50,
-                color: Colors.blue,
+                color: Colors.red,
               ),
             ),
             Container(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_nhom5_petshop/constants/image.dart';
 import 'package:flutter_nhom5_petshop/screens/LoginScreen.dart';
 import 'package:flutter_nhom5_petshop/screens/Order.dart';
+import 'package:flutter_nhom5_petshop/screens/shipping_add.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -22,6 +23,13 @@ class _MyProfileState extends State<MyProfile> {
   Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => MyOrderPage()),
+  );
+}
+
+  void _navigateToAddressScreen(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => ShippingAddressesPage()),
   );
 }
 
@@ -52,7 +60,13 @@ class _MyProfileState extends State<MyProfile> {
             },
             child: _itemProfile("My Orders", "Already have 12 orders"),
             ),
-            _itemProfile("Shipping Address", "3 Address"),
+            GestureDetector(
+            onTap: () {
+              _navigateToAddressScreen(context);
+            },
+            child: _itemProfile("Shipping Address", "3 Address"),
+            ),
+            
             _itemProfile("Settings", "Notifications,  Password"),
             _logout(context),
           ],

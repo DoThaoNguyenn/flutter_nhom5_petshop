@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import '../constants/image.dart';
 import '../model/item_cart_model.dart';
 
+import 'package:flutter_nhom5_petshop/screens/Checkout.dart';
+
 class Cart extends StatefulWidget {
   const Cart({super.key});
 
@@ -312,7 +314,14 @@ class _CartState extends State<Cart> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+              context,
+              MaterialPageRoute(
+              builder: (context) => Checkout(),
+            ),
+      );
+                  },
                   style: ElevatedButton.styleFrom(
                       shadowColor: const Color.fromRGBO(0, 0, 0, 0.25),
                       elevation: 4,

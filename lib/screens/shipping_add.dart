@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_nhom5_petshop/screens/productdetail.dart';
 
 class ShippingAddressesPage extends StatefulWidget {
   @override
@@ -59,6 +60,8 @@ class _ShippingAddressesPageState extends State<ShippingAddressesPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // TODO: Xử lý hành động khi nhấn vào Floating Action Button
+          Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ProductDetailPage()));
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.red,

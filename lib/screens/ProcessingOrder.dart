@@ -4,11 +4,10 @@ import 'package:flutter_nhom5_petshop/screens/my_profile.dart';
 import 'package:flutter_nhom5_petshop/screens/OrderDetail.dart';
 import 'package:flutter_nhom5_petshop/screens/Home.dart';
 import '../main.dart';
-import 'package:flutter_nhom5_petshop/screens/ProcessingOrder.dart';
+import 'package:flutter_nhom5_petshop/screens/Order.dart';
 import 'package:flutter_nhom5_petshop/screens/CancelOrder.dart';
 
-
-class MyOrderPage extends StatelessWidget {
+class ProcessingOrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,30 +39,10 @@ class MyOrderPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Xử lý chức năng điều hướng khi nhấn vào Delivered
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 245, 74, 59),
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                          minimumSize: Size(100, 0),
-                          ),
-                  child: Text(
-                    'Delivered',
-                    style: TextStyle(
-                      
-                      fontSize: 18,
-                    ),
-                  
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
                     Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => ProcessingOrderPage(),
+                    builder: (context) => MyOrderPage(),
                   ),
           );
           },
@@ -81,9 +60,29 @@ class MyOrderPage extends StatelessWidget {
                           minimumSize: Size(100, 0),
                           ),
                   child: Text(
-                    'Processing',
+                    'Delivered',
                     style: TextStyle(
                       color:Colors.black,
+                      fontSize: 18,
+                    ),
+                  
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Xử lý chức năng điều hướng khi nhấn vào Processing
+                  },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 245, 74, 59),
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                          minimumSize: Size(100, 0),
+                          ),
+                  child: Text(
+                    'Processing',
+                    style: TextStyle(
+                      color:const Color.fromARGB(255, 252, 252, 252),
                       fontSize: 18,
                     ),
                 ),
@@ -165,11 +164,11 @@ class MyOrderPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Delivered',                          
+                            Text('Processing',                          
                               style: TextStyle(
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold,
-                                
+                                fontSize: 15,
                               )
                             ),
                             Text('${index + 5}',style: TextStyle(fontSize: 15,)),

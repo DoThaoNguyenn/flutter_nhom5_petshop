@@ -5,10 +5,10 @@ import 'package:flutter_nhom5_petshop/screens/OrderDetail.dart';
 import 'package:flutter_nhom5_petshop/screens/Home.dart';
 import '../main.dart';
 import 'package:flutter_nhom5_petshop/screens/ProcessingOrder.dart';
-import 'package:flutter_nhom5_petshop/screens/CancelOrder.dart';
+import 'package:flutter_nhom5_petshop/screens/Order.dart';
 
 
-class MyOrderPage extends StatelessWidget {
+class CancelOrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +40,21 @@ class MyOrderPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Xử lý chức năng điều hướng khi nhấn vào Delivered
-                  },
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => MyOrderPage(),
+                  ),
+          );
+          },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromARGB(255, 245, 74, 59),
+                      // shadowColor: const Color.fromRGBO(0, 0, 0, 0.25),
+                      side: BorderSide(
+                        color: Colors.black, // Màu sắc của viền
+                        width: 1.0, // Độ dày của viền
+                      ),
+     
+                      backgroundColor: Colors.grey[100],
                       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
@@ -52,13 +63,14 @@ class MyOrderPage extends StatelessWidget {
                   child: Text(
                     'Delivered',
                     style: TextStyle(
-                      
+                      color:Colors.black,
                       fontSize: 18,
                     ),
                   
                   ),
                 ),
                 ElevatedButton(
+                  
                   onPressed: () {
                     Navigator.push(
                     context,
@@ -67,6 +79,7 @@ class MyOrderPage extends StatelessWidget {
                   ),
           );
           },
+                 
                   style: ElevatedButton.styleFrom(
                       // shadowColor: const Color.fromRGBO(0, 0, 0, 0.25),
                       side: BorderSide(
@@ -90,21 +103,10 @@ class MyOrderPage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                    builder: (context) => CancelOrderPage(),
-                  ),
-          );
-          },
+                    // Xử lý chức năng điều hướng khi nhấn vào Cancel
+                  },
                   style: ElevatedButton.styleFrom(
-                      
-                      side: BorderSide(
-                        color: Colors.black, // Màu sắc của viền
-                        width: 1.0, // Độ dày của viền
-                      ),
-     
-                      backgroundColor: Colors.white,
+                      backgroundColor: Color.fromARGB(255, 245, 74, 59),
                       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
@@ -113,7 +115,7 @@ class MyOrderPage extends StatelessWidget {
                   child: Text(
                     'Cancel',
                     style: TextStyle(
-                      color:Colors.black,
+                      color:Colors.white,
                       fontSize: 18,
                     ),),
                 ),
@@ -165,11 +167,11 @@ class MyOrderPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Delivered',                          
+                            Text('Cancel',                          
                               style: TextStyle(
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold,
-                                
+                                fontSize: 15,
                               )
                             ),
                             Text('${index + 5}',style: TextStyle(fontSize: 15,)),

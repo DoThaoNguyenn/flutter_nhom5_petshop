@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'LoginScreen.dart';
@@ -48,6 +50,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'Đăng ký',
+              style: TextStyle(
+                fontSize: 70,
+                color: Colors.blue,
+              ),
+            ),
             Container(
               margin: EdgeInsets.all(20),
               child: TextField(
@@ -62,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               margin: EdgeInsets.all(20),
               child: TextField(
                 controller: _passwordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Mật khẩu',
                   border: OutlineInputBorder(),
                 ),

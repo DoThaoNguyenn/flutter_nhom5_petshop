@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Xử lý điều hướng đến trang đăng ký
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()), // Thay thế bằng trang đăng ký thực tế
+                  MaterialPageRoute(builder: (context) => RegisterScreen()),
                 );
               },
               child: const Text('Đăng ký'),

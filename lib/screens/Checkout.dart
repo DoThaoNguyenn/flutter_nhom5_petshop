@@ -50,7 +50,7 @@ class Checkout extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 10),
                     child: Text(
-                      "Nhi Mẫn",
+                      "Nguyen Mau Nhi Man",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -78,8 +78,8 @@ class Checkout extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black12,
-                          blurRadius: 2,
-                          spreadRadius: 4,
+                          blurRadius: 1,
+                          spreadRadius: 2,
                         ),
                       ]),
                   child: Padding(
@@ -122,7 +122,7 @@ class Checkout extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 10),
                     child: Text(
-                      "71 Ngu Hanh Son",
+                      "71 Ngu Hanh Son, My An, Đa Nang",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -225,7 +225,7 @@ class Checkout extends StatelessWidget {
                   color: Colors.black,
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -233,7 +233,7 @@ class Checkout extends StatelessWidget {
                     Text(
                       "Summary",
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
                         color: Colors.grey,
                       ),
@@ -247,36 +247,33 @@ class Checkout extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 40),
-                InkWell(
-                  child: Container(
-                    width: 400.0,
-                    padding: new EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
-                    // color: Color(0xfff83333),
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Color(0xfff83333)),
-                          ),
-                          onPressed: () {
-                            addToCart(
-                                context); // Gọi hàm addToCart() khi nút được nhấp vào
-                          },
-                          child: Text(
-                            "Check Out",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 24,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                SizedBox(height: 20),
+                const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                              addToCart(context);
+                            },
+                  style: ElevatedButton.styleFrom(
+                      shadowColor: const Color.fromRGBO(0, 0, 0, 0.25),
+                      elevation: 4,
+                      backgroundColor: const Color(0xFFDB3022),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30))),
+                  child: const Text(
+                    'Check out',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w600),
                   ),
                 ),
+              ),
               ],
             ),
           ),

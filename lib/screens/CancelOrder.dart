@@ -128,7 +128,7 @@ class CancelOrderPage extends StatelessWidget {
           Expanded(
             
             child: ListView.builder(
-              itemCount:5, // Số lượng đơn đặt hàng
+              itemCount:1, // Số lượng đơn đặt hàng
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   // padding: EdgeInsets.only(bottom: 10), // Khoảng cách giữa các đơn đặt hàng

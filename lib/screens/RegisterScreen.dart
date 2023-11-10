@@ -45,68 +45,70 @@ class _RegisterScreenState extends State<RegisterScreen> {
         title: Text('Register'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Đăng ký',
-              style: TextStyle(
-                fontSize: 70,
-                color: Colors.red,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: TextField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                  labelText: 'Tên người dùng',
-                  border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Đăng ký',
+                style: TextStyle(
+                  fontSize: 70,
+                  color: Colors.red,
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: TextField(
-                controller: _passwordController,
-                decoration: const InputDecoration(
-                  labelText: 'Mật khẩu',
-                  border: OutlineInputBorder(),
+              Container(
+                margin: EdgeInsets.all(20),
+                child: TextField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(
+                    labelText: 'Tên người dùng',
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-                obscureText: true,
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: TextField(
-                controller: _confirmPasswordController,
-                decoration: InputDecoration(
-                  labelText: 'Xác nhận mật khẩu',
-                  border: OutlineInputBorder(),
+              Container(
+                margin: EdgeInsets.all(20),
+                child: TextField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(
+                    labelText: 'Mật khẩu',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
                 ),
-                obscureText: true,
               ),
-            ),
-            Text(
-              _errorText,
-              style: TextStyle(color: Colors.red),
-            ),
-            ElevatedButton(
-              onPressed: _register,
-              child: Text('Đăng ký'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Xử lý điều hướng đến trang đăng nhập
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
-              },
-              child: Text('Đăng nhập'),
-            ),
-          ],
+              Container(
+                margin: EdgeInsets.all(20),
+                child: TextField(
+                  controller: _confirmPasswordController,
+                  decoration: InputDecoration(
+                    labelText: 'Xác nhận mật khẩu',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
+              ),
+              Text(
+                _errorText,
+                style: TextStyle(color: Colors.red),
+              ),
+              ElevatedButton(
+                onPressed: _register,
+                child: Text('Đăng ký'),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Xử lý điều hướng đến trang đăng nhập
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Text('Đăng nhập'),
+              ),
+            ],
+          ),
         ),
       ),
     );

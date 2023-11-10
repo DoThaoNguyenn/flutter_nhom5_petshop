@@ -51,67 +51,69 @@ class _LoginScreenState extends State<LoginScreen> {
         title: const Text('Login'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Welcome!',
-              style: TextStyle(
-                fontSize: 70,
-                color: Colors.red,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              child: TextField(
-                controller: _usernameController,
-                decoration: const InputDecoration(
-                  labelText: 'Tên người dùng',
-                  border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Welcome!',
+                style: TextStyle(
+                  fontSize: 70,
+                  color: Colors.red,
                 ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              child: TextField(
-                controller: _passwordController,
-                decoration: const InputDecoration(
-                  labelText: 'Mật khẩu',
-                  border: OutlineInputBorder(),
+              Container(
+                margin: const EdgeInsets.all(20),
+                child: TextField(
+                  controller: _usernameController,
+                  decoration: const InputDecoration(
+                    labelText: 'Tên người dùng',
+                    border: OutlineInputBorder(),
+                  ),
                 ),
-                obscureText: true,
               ),
-            ),
-            Text(
-              _errorText,
-              style: const TextStyle(color: Colors.red),
-            ),
-            ElevatedButton(
-              onPressed: _login,
-              child: const Text('Đăng nhập'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Xử lý điều hướng đến trang đăng ký
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()),
-                );
-              },
-              child: const Text('Đăng ký'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Xử lý điều hướng đến trang quên mật khẩu
-                Navigator.push(
+              Container(
+                margin: const EdgeInsets.all(20),
+                child: TextField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(
+                    labelText: 'Mật khẩu',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
+              ),
+              Text(
+                _errorText,
+                style: const TextStyle(color: Colors.red),
+              ),
+              ElevatedButton(
+                onPressed: _login,
+                child: const Text('Đăng nhập'),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Xử lý điều hướng đến trang đăng ký
+                  Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
-                );
-              },
-              child: const Text('Quên mật khẩu'),
-            ),
-          ],
+                    MaterialPageRoute(builder: (context) => RegisterScreen()),
+                  );
+                },
+                child: const Text('Đăng ký'),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Xử lý điều hướng đến trang quên mật khẩu
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
+                  );
+                },
+                child: const Text('Quên mật khẩu'),
+              ),
+            ],
+          ),
         ),
       ),
     );

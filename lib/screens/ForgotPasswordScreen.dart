@@ -34,46 +34,48 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         title: const Text('Forgot Password'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Quên mật khẩu',
-              style: TextStyle(
-                fontSize: 50,
-                color: Colors.red,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              child: TextField(
-                controller: _emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Địa chỉ email hoặc thông tin liên hệ',
-                  border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Quên mật khẩu',
+                style: TextStyle(
+                  fontSize: 50,
+                  color: Colors.red,
                 ),
               ),
-            ),
-            Text(
-              _errorText,
-              style: const TextStyle(color: Colors.red),
-            ),
-            ElevatedButton(
-              onPressed: _resetPassword,
-              child: const Text('Đặt lại mật khẩu'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Xử lý điều hướng về trang đăng nhập
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                );
-              },
-              child: const Text('Đăng nhập'),
-            ),
-          ],
+              Container(
+                margin: const EdgeInsets.all(20),
+                child: TextField(
+                  controller: _emailController,
+                  decoration: const InputDecoration(
+                    labelText: 'Địa chỉ email hoặc thông tin liên hệ',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+              Text(
+                _errorText,
+                style: const TextStyle(color: Colors.red),
+              ),
+              ElevatedButton(
+                onPressed: _resetPassword,
+                child: const Text('Đặt lại mật khẩu'),
+              ),
+              TextButton(
+                onPressed: () {
+                  // Xử lý điều hướng về trang đăng nhập
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: const Text('Đăng nhập'),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -28,10 +28,10 @@ class _ShippingAddressesPageState extends State<ShippingAddressesPage> {
           },
         ),
         iconTheme: IconThemeData(
-            color: Colors.red), //
+            color: const Color.fromARGB(255, 255, 255, 255)), //
       ),
       body: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(5.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

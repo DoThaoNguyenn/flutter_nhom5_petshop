@@ -380,7 +380,7 @@ Widget OrderInformation =  Container(
             ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              margin: const EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 10),
               child: Button,
             ),
             

@@ -15,18 +15,8 @@ class MyOrderPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-<<<<<<< HEAD
-            Navigator.pop(context);
-          //   Navigator.push(
-          //         context,
-          //         MaterialPageRoute(
-          //         builder: (context) => MyProfile(),
-          //       ),
-          // );
-=======
             // Navigate back to the previous screen
             Navigator.pop(context);
->>>>>>> b80b8382cfebeb7e5d931fc0d9b93af860869179
           },
         ),
         title: Text('MyOrder'),

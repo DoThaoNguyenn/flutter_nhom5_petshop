@@ -52,7 +52,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           Image.asset(
             img2,
             height: 200,
-            fit: BoxFit.cover,
+            width: 500,
+            // fit: BoxFit.cover,
           ),
           SizedBox(height: 16),
           Row(

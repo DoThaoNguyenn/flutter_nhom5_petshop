@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'LoginScreen.dart';
@@ -8,9 +10,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
   String _errorText = '';
 
   void _register() {
@@ -48,6 +50,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'Đăng ký',
+              style: TextStyle(
+                fontSize: 70,
+                color: Colors.blue,
+              ),
+            ),
             Container(
               margin: EdgeInsets.all(20),
               child: TextField(
@@ -62,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               margin: EdgeInsets.all(20),
               child: TextField(
                 controller: _passwordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Mật khẩu',
                   border: OutlineInputBorder(),
                 ),

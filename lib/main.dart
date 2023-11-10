@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_nhom5_petshop/screens/cart.dart';
 import 'package:flutter_nhom5_petshop/screens/my_profile.dart';
+import 'package:flutter_nhom5_petshop/screens/Home.dart';
 
 import 'screens/LoginScreen.dart';
 
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      //  theme: ThemeData(
+      //     primarySwatch: Colors.red,
+      //   ),
       home: HomeScreen(),
     );
   }
@@ -26,10 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _tabs = [
-    HomeTab(),
+    const HomePage(),
     const Cart(),
     // UserTab(),
     const MyProfile(),
+    
   ];
 
   void _onTabTapped(int index) {
@@ -45,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Pet Shop'),
         centerTitle: true,
       ),
+      
       body: _tabs[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

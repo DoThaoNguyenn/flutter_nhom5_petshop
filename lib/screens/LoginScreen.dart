@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
 import 'ForgotPasswordScreen.dart';
 import 'RegisterScreen.dart';
 
@@ -9,8 +10,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   String _errorText = ''; // Thêm biến để lưu thông báo lỗi
 
   void _login() {
@@ -22,12 +23,26 @@ class _LoginScreenState extends State<LoginScreen> {
         _errorText = 'Vui lòng điền tên người dùng và mật khẩu.';
       });
     } else {
-      // Xử lý đăng nhập ở đây
-      setState(() {
-        _errorText = ''; // Đặt lại thông báo lỗi nếu không có lỗi
-      });
+      // Kiểm tra tên người dùng và mật khẩu
+      if (username == 'admin' && password == '12345') {
+        // Đăng nhập thành công, có thể thực hiện hành động cần thiết ở đây
+        setState(() {
+          _errorText = ''; // Đặt lại thông báo lỗi nếu không có lỗi
+        });
+        // Thực hiện hành động sau khi đăng nhập thành công
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()), //điều hướng đến home
+        );
+      } else {
+        // Đăng nhập thất bại, hiển thị thông báo lỗi
+        setState(() {
+          _errorText = 'Tên người dùng hoặc mật khẩu không đúng.';
+        });
+      }
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Xử lý điều hướng đến trang đăng ký
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()), // Thay thế bằng trang đăng ký thực tế
+                  MaterialPageRoute(builder: (context) => RegisterScreen()),
                 );
               },
               child: const Text('Đăng ký'),

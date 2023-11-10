@@ -8,7 +8,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 }
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
-  TextEditingController _emailController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   String _errorText = '';
 
   void _resetPassword() {
@@ -31,18 +31,25 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
         centerTitle: true,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'Quên mật khẩu',
+              style: TextStyle(
+                fontSize: 50,
+                color: Colors.blue,
+              ),
+            ),
             Container(
-              margin: EdgeInsets.all(20),
+              margin: const EdgeInsets.all(20),
               child: TextField(
                 controller: _emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Địa chỉ email hoặc thông tin liên hệ',
                   border: OutlineInputBorder(),
                 ),
@@ -50,11 +57,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
             Text(
               _errorText,
-              style: TextStyle(color: Colors.red),
+              style: const TextStyle(color: Colors.red),
             ),
             ElevatedButton(
               onPressed: _resetPassword,
-              child: Text('Đặt lại mật khẩu'),
+              child: const Text('Đặt lại mật khẩu'),
             ),
             TextButton(
               onPressed: () {
@@ -64,7 +71,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-              child: Text('Đăng nhập'),
+              child: const Text('Đăng nhập'),
             ),
           ],
         ),

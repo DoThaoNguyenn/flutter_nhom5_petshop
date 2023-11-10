@@ -3,8 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../constants/image.dart';
 import '../model/item_cart_model.dart';
-import 'package:flutter/widgets.dart'; // Import gói flutter/widgets.dart
-import 'package:flutter/services.dart';
+
 class ProductDetailPage extends StatefulWidget {
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
@@ -27,39 +26,31 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Row(
-          children: [
-            IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.red,
-              ),
-              onPressed: () {
-                // Handle back button press
-                Navigator.pop(context); // Quay trở lại trang trước đó
-              },
-            ),
-            SizedBox(width: 8),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Product Name',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                ),
-              ),
-            ),
-          ],
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.red,
+          ),
+          onPressed: () {
+            // Handle back button press
+            Navigator.pop(context); // Quay trở lại trang trước đó
+          },
+        ),
+        title: Text(
+          'Product Name',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.red,
+          ),
         ),
       ),
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
           SizedBox(height: 16),
-          Image.asset(img2
-            ,
+          Image.asset(
+            img2,
             height: 200,
             fit: BoxFit.cover,
           ),
@@ -96,12 +87,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   Icons.favorite,
                   color: isFavorite
                       ? Colors.red
-                      : Colors
-                          .black, // Change favorite button color based on state
+                      : Colors.black, // Change favorite button color based on state
                 ),
                 onPressed: () {
                   setState(() {
-                    // Update favorite button state
+                  // Update favorite button state
                     isFavorite = !isFavorite;
                   });
                 },
@@ -110,47 +100,41 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ),
           SizedBox(height: 16),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Product Name',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
-              SizedBox(
-                width: 120.0,
-                height: 50.0,
-                child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(children: [
-                      TextSpan(
-                          text: '100.000',
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              decoration: TextDecoration.lineThrough)),
-                      const TextSpan(text: '  '),
-                      TextSpan(
-                          text: '80.000',
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Montserrat',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600))
-                    ]),
-                  ),
-                ],
-              ),
-             
-              )
-
-            ],
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Text(
+      'Product Name',
+      style: TextStyle(
+        fontSize: 20,
+      ),
+    ),
+    SizedBox(width: 8),
+    RichText(
+      textAlign: TextAlign.right,
+      text: TextSpan(children: [
+        TextSpan(
+          text: '100.000',
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Montserrat',
+            fontSize: 16,
+            decoration: TextDecoration.lineThrough,
           ),
+        ),
+        TextSpan(text: '  '),
+        TextSpan(
+          text: '80.000',
+          style: TextStyle(
+            color: Colors.black,
+            fontFamily: 'Montserrat',
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ]),
+    ),
+  ],
+),
           SizedBox(height: 16),
           Text(
             'Product details',
@@ -168,11 +152,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  
                   style: ElevatedButton.styleFrom(
                     primary: Colors.red, // Set button background color
                     onPrimary: Colors.white, // Set button text color
-                    
                     padding: EdgeInsets.symmetric(
                         vertical: 12, horizontal: 64), // Set button padding
                     shape: RoundedRectangleBorder(
@@ -186,7 +168,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   },
                   child: Text('Add to Cart'),
                 ),
-
                 GestureDetector(
                   onTap: () {
                     setState(() {

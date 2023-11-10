@@ -10,8 +10,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   String _errorText = ''; // Thêm biến để lưu thông báo lỗi
 
   void _login() {
@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Xử lý điều hướng đến trang đăng ký
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegisterScreen()), // Thay thế bằng trang đăng ký thực tế
+                  MaterialPageRoute(builder: (context) => RegisterScreen()),
                 );
               },
               child: const Text('Đăng ký'),

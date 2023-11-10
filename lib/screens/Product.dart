@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model/product.dart';
 import '../constants/image.dart';
+import '../Screens/productdetail.dart';
 
 class HomePageProduct extends StatelessWidget {
   final List<Product> products = [
@@ -35,7 +36,7 @@ class HomePageProduct extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 10, top:10),
+          padding: EdgeInsets.only(left: 10, top: 10),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
@@ -47,93 +48,78 @@ class HomePageProduct extends StatelessWidget {
             ),
           ),
         ),
-
-        // Padding(
-        //   padding: const EdgeInsets.all(5.0),
-        // ),
         Container(
           height: 200,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: products.length, // Number of products in the slide
+            itemCount: products.length,
             itemBuilder: (context, index) {
-              // context state
-              Product product = products[index];
-              // Build a product in the slide
-              return Container(
-                // padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 3),
-                margin: const EdgeInsets.all(5),
-                width: 150,
-                child: Card(
-                  
-                  child: Column(
-                    
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      
-                      // Image.network(product.imageUrl),
-                      Image.asset(
-                  product.imageUrl,
-                  height: 70,
-                  width: 70,
-                ),
-                      Text(product.name),
-
-                      Row(
-                        children: [
-                          Icon(Icons.star, color: Colors.yellow),
-                          Icon(Icons.star, color: Colors.yellow),
-                          Icon(Icons.star, color: Colors.yellow),
-                          Icon(Icons.star, color: Colors.yellow),
-                          Icon(Icons.star, color: Colors.yellow),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          // Price
-                          Text(
-                            '${product.originalPrice}',
-                            style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              fontSize: 12,
+              final Product product = products[index];
+              return GestureDetector(
+                onTap: () {
+                  navigateToProductDetail(context, product);
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(5),
+                  width: 150,
+                  child: Card(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          product.imageUrl,
+                          height: 70,
+                          width: 70,
+                        ),
+                        Text(product.name),
+                        Row(
+                          children: [
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                            Icon(Icons.star, color: Colors.yellow),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              '${product.originalPrice}',
+                              style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                fontSize: 12,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 15),
-                          // DiscountPrice
-                          Text(
-                            '${product.discountedPrice}',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.red,
-                              fontWeight: FontWeight.bold,
+                            SizedBox(width: 15),
+                            Text(
+                              '${product.discountedPrice}',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-
-                      // Buy Now button
-                      Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              // Handle Buy Now button click event
-                            },
-                            child: Text('Buy Now'),
-                          ),
-                          // SizedBox(width: 10),
-                          IconButton(
-                            iconSize: 25,
-                            icon: Icon(Icons.shopping_cart),
-                            // tooltip: 'Cart', //hiển thị ghi chú
-                            onPressed: () {
-                              success(context);
-                            },
-                          ),
-                        ],
-                      ),
-
-                      // Rating and stars
-                    ],
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                // Xử lý sự kiện nhấp vào nút "Buy Now"
+                              },
+                              child: Text('Buy Now'),
+                            ),
+                            IconButton(
+                              iconSize: 25,
+                              icon: Icon(Icons.shopping_cart),
+                              onPressed: () {
+                                success(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );
@@ -141,6 +127,15 @@ class HomePageProduct extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  void navigateToProductDetail(BuildContext context, Product product) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductDetailPage(),
+      ),
     );
   }
 }
@@ -151,8 +146,7 @@ void success(BuildContext context) {
     builder: (BuildContext dialogContext) {
       return AlertDialog(
         content: Column(
-          mainAxisSize:
-              MainAxisSize.min, // Đảm bảo cột chỉ chiếm không gian cần thiết
+          mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
               Icons.check_circle,

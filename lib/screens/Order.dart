@@ -17,12 +17,13 @@ class MyOrderPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                  builder: (context) => MyProfile(),
-                ),
-          );
+            Navigator.pop(context);
+          //   Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //         builder: (context) => MyProfile(),
+          //       ),
+          // );
           },
         ),
         

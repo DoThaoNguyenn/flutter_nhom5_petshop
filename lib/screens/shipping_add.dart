@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_nhom5_petshop/screens/productdetail.dart';
+import 'package:flutter_nhom5_petshop/screens/addshippingadd.dart';
 
+
+import 'package:flutter_nhom5_petshop/screens/editadd.dart';
 class ShippingAddressesPage extends StatefulWidget {
   @override
   _ShippingAddressesPageState createState() => _ShippingAddressesPageState();
@@ -25,6 +27,8 @@ class _ShippingAddressesPageState extends State<ShippingAddressesPage> {
             Navigator.pop(context);
           },
         ),
+        iconTheme: IconThemeData(
+            color: Colors.red), //
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -59,9 +63,12 @@ class _ShippingAddressesPageState extends State<ShippingAddressesPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // TODO: Xử lý hành động khi nhấn vào Floating Action Button
           Navigator.push(
-        context, MaterialPageRoute(builder: (context) => ProductDetailPage()));
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddAddressPage(),
+            ),
+          );
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.red,
@@ -119,8 +126,9 @@ class ShippingAddressCard extends StatelessWidget {
                   onChanged: (value) {
                     onSelect(name);
                   },
+                  activeColor: Colors.red,
                 ),
-                Text('Use as the default shiping address'),
+                Text('Use as the default shipping address'),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -128,7 +136,14 @@ class ShippingAddressCard extends StatelessWidget {
                       onPressed: () {
                         // TODO: Xử lý hành động chỉnh sửa địa chỉ
                       },
-                      child: Text('Edit'),
+                      child:
+                        TextButton(
+  onPressed: () {
+    _navigateToEditAddressPage(context);
+  },
+  child: Text('Edit'),
+), 
+                      
                     ),
                   ],
                 ),
@@ -139,6 +154,34 @@ class ShippingAddressCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class AddShippingCartPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text('Add Shipping Cart'),
+      ),
+      body: Container(
+        // TODO: Thêm UI cho trang "add_shipping_cart"
+      ),
+    );
+  }
+}
+void _navigateToEditAddressPage(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => EditAddAddressPage(),
+    ),
+  );
 }
 
 void main() {
